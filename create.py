@@ -29,20 +29,6 @@ def get_mp3length(path):
     audio = MP3(path)
     return audio.info.length
 
-
-def VideoClip(filename, start=0, end=None):
-    tmp_name = filename.split('.')
-    new_filename = tmp_name[0] + '_clip.' + tmp_name[1]
-    video = VideoFileClip(filename)
-    try:
-        result = video.subclip(start, end)
-        result.write_videofile(new_filename)
-        video.reader.close()
-        return new_filename
-    except:
-        traceback.print_exc()
-    return None
-
 def video_add_mp3(file_name, mp31_file,mp32_file,new_filename, time):
 
     video = VideoFileClip(file_name)
